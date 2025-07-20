@@ -49,8 +49,7 @@ let counter=0
     break;
  }
 }
-submit.onclick=(e)=>{
-  e.preventDefault()
+submit.onclick=()=>{
 for (let i = 0; i < h2.length; i++) {
 if (a[i].previousElementSibling.checked) {
  if(a[i].className==questions[i].correct_answer){
