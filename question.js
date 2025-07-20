@@ -68,3 +68,4 @@ else{
 }
 console.log(counter)
 }
+console.log(questions)

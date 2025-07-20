@@ -28,7 +28,7 @@ btn.onclick=(e)=>{
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-        window.location="./profile.html"
+        window.location="./category.html"
     // ...
   })
   .catch((error) => {
@@ -46,7 +46,7 @@ btn.onclick=(e)=>{
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     const user = result.user;
-    window.location="./profile.html"
+    window.location="./category.html"
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
