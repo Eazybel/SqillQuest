@@ -19,7 +19,7 @@ buttons.onclick=()=>{
                    })
                    .then(data=>{
 
-                    localStorage.clear()
+                    localStorage.removeItem("Quiz")
                        localStorage.setItem("Quiz",JSON.stringify(data))
                       window.open("./question.html","_blank")
                        console.log(data)
@@ -35,14 +35,14 @@ buttons.onclick=()=>{
                    fetch(`https://quizapi.io/api/v1/questions?apiKey=HmXinFOR8xQlpJsjNmFeYCZHggpiT5RyQrkBRvme&limit=10&category=${selected}&difficulty=medium`)
                   .then(res=>{                  
                     if(!res.ok){
-                       window.open("./coming.html","_blanc")
+                       window.location="./coming.html"
                       return Promise.reject("Page Not found")
                     }else if(res.ok){
                             return res.json()
                     }
                    })
                    .then(data=>{
-                    localStorage.clear()
+                    localStorage.removeItem("Quiz")
                     localStorage.setItem("Quiz",JSON.stringify(data))
                     window.open("./question.html","_blank")
                    }).catch(
@@ -66,7 +66,7 @@ buttons.onclick=()=>{
                      
                    })
                    .then(data=>{
-                    localStorage.clear()
+                    localStorage.removeItem("Quiz")
                    localStorage.setItem("Quiz",JSON.stringify(data))
                     window.open("./question.html","_blank")
                    }).catch(

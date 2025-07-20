@@ -6,13 +6,31 @@ const b=document.querySelectorAll(".b")
 const c=document.querySelectorAll(".c")
 const d=document.querySelectorAll(".d")
 const submit=document.getElementById("submit")
+const high=document.getElementById("high")
 let counter=0
  for (let i = 0; i < h2.length; i++) {
   h2[i].innerText=`${i+1}. ${questions[i].question}`
-  a[i].innerText=questions[i].answers.answer_a
-  b[i].innerText=questions[i].answers.answer_b
-  c[i].innerText=questions[i].answers.answer_c
-  d[i].innerText=questions[i].answers.answer_d
+  if(questions[i].answers.answer_a!=null){
+    a[i].innerText=questions[i].answers.answer_a
+  }else if(questions[i].answers.answer_a==null){
+      a[i].innerText="none"
+  }
+ if(questions[i].answers.answer_b!=null){
+    b[i].innerText=questions[i].answers.answer_b
+  }else if(questions[i].answers.answer_b==null){
+      b[i].innerText="none"
+  }
+  if(questions[i].answers.answer_c!=null){
+    c[i].innerText=questions[i].answers.answer_c
+  }else if(questions[i].answers.answer_c==null){
+      c[i].innerText="none"
+  }
+  if(questions[i].answers.answer_d!=null){
+    d[i].innerText=questions[i].answers.answer_d
+  }else if(questions[i].answers.answer_d==null){
+      d[i].innerText="none"
+  }
+ 
  switch ("true") {
   case questions[i].correct_answers.answer_a_correct:
     questions[i].correct_answer="a"
@@ -32,7 +50,7 @@ let counter=0
  }
 }
 submit.onclick=(e)=>{
-e.preventDefault()
+  e.preventDefault()
 for (let i = 0; i < h2.length; i++) {
 if (a[i].previousElementSibling.checked) {
  if(a[i].className==questions[i].correct_answer){
@@ -66,6 +84,9 @@ else{
   alert("you missed a question(s) please answer it")
 }
 }
-console.log(counter)
+if(localStorage.getItem("score")<counter){
+localStorage.setItem("score",counter)
 }
-console.log(questions)
+
+}
+high.innerText=`${localStorage.getItem("score")}/10`
