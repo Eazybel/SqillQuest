@@ -10,11 +10,14 @@ buttons.onclick=()=>{
 
                    fetch(`https://quizapi.io/api/v1/questions?apiKey=HmXinFOR8xQlpJsjNmFeYCZHggpiT5RyQrkBRvme&limit=10&category=${selected}&difficulty=easy`)
                    .then(res=>{                  
-                    if(!res.ok){
+                    if(res.status==404){
                        window.location="./coming.html"
                       return Promise.reject("Page Not found")
                     }else if(res.ok){
                             return res.json()
+                    }else if(res.status==429){
+                        alert("Too much for to day try again tomorrow ")
+                      return Promise.reject("Page Not found")
                     }
                    })
                    .then(data=>{
@@ -34,11 +37,14 @@ buttons.onclick=()=>{
              const selected=inputs.parentElement.parentElement.parentElement.querySelector("h2").innerText
                    fetch(`https://quizapi.io/api/v1/questions?apiKey=HmXinFOR8xQlpJsjNmFeYCZHggpiT5RyQrkBRvme&limit=10&category=${selected}&difficulty=medium`)
                   .then(res=>{                  
-                    if(!res.ok){
+                    if(res.status==404){
                        window.location="./coming.html"
                       return Promise.reject("Page Not found")
                     }else if(res.ok){
                             return res.json()
+                    }else if(res.status==429){
+                        alert("Too much for to day try again tomorrow ")
+                      return Promise.reject("Page Not found")
                     }
                    })
                    .then(data=>{
@@ -57,11 +63,14 @@ buttons.onclick=()=>{
 
                    fetch(`https://quizapi.io/api/v1/questions?apiKey=HmXinFOR8xQlpJsjNmFeYCZHggpiT5RyQrkBRvme&limit=10&category=${selected}&difficulty=hard`)
                    .then(res=>{
-                    if(!res.ok){
+                    if(res.status==404){
                        window.location="./coming.html"
                       return Promise.reject("Page Not found")
                     }else if(res.ok){
                             return res.json()
+                    }else if(res.status==429){
+                        alert("Too much for to day try again tomorrow ")
+                      return Promise.reject("Page Not found")
                     }
                      
                    })

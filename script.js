@@ -35,6 +35,7 @@ document.getElementById("btn").onclick = (e) => {
     })
     .catch((error) => {
       console.error("Email Sign-In Error:", error.code, error.message);
+      alert("Wrong Credential Try Again")
     });
 };
 
