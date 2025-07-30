@@ -113,3 +113,4 @@ if(localStorage.getItem(`score ${questions[0].category},${questions[0].difficult
 if(localStorage.getItem(`score ${questions[0].category},${questions[0].difficulty}`)==null){
   high.innerText="--"
 }
+//project still works
